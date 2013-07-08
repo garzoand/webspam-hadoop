@@ -5,7 +5,7 @@
   <version>0.20</version>
   <packaging>jar</packaging>
   
-  <name>bigdata-common</name>
+  <name>webspam-hadoop</name>
   <description>Bigdata common</description>
   
   <organization>
