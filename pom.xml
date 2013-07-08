@@ -1,0 +1,161 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>hu.sztaki.ilab.bigdata</groupId>
+  <artifactId>bigdata-searching</artifactId>
+  <version>0.0.1-SNAPSHOT</version>
+  <packaging>jar</packaging>
+
+  <name>bigdata-searching</name>
+  <description>Bigdata searching</description>
+
+  <organization>
+    <name>MTA SZTAKI Informatikai Laboratórium Adatbányászat és Webes Keresés Kutatócsoport</name>
+    <url>http://datamining.sztaki.hu/</url>
+  </organization>
+
+  <developers>
+    <developer>
+      <name>Bendig Loránd</name>
+      <email>lbendig@ilab.sztaki.hu</email>
+    </developer>
+    <developer>
+      <name>Garzó András</name>
+      <email>garzo@ilab.sztaki.hu</email>
+    </developer>
+  </developers>
+
+  <distributionManagement>
+    <repository>
+      <id>info.ilab</id>
+      <name>sztaki ilab central repository</name>
+      <url>dav:https://datamining.sztaki.hu/maven</url>
+    </repository>
+    <snapshotRepository>
+      <id>info.ilab</id>
+      <name>sztaki ilab central dev repository</name>
+      <url>dav:https://datamining.sztaki.hu/maven</url>
+    </snapshotRepository>
+    <site>
+      <id>info.ilab</id>
+      <name>sztaki ilab maven site </name>
+      <url>dav:https://datamining.sztaki.hu/maven</url>
+    </site>
+  </distributionManagement>
+
+  <properties>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    <compileSource>1.6</compileSource>
+  </properties>
+
+  <repositories>
+    <repository>
+      <id>info.ilab</id>
+      <name>sztaki ilab central repository</name>
+      <url>dav:https://datamining.sztaki.hu/maven</url>
+    </repository>
+    <repository>
+      <id>codehaus</id>
+      <name>Codehaus Maven repository</name>
+      <url>http://repository.codehaus.org/</url>
+    </repository>
+    <repository>
+      <id>cloudera</id>
+      <name>Cloudera Maven repository</name>
+      <url>https://repository.cloudera.com/artifactory/cloudera-repos/</url>
+    </repository>
+  </repositories>
+
+  <dependencies>
+    <dependency>
+      <groupId>hu.sztaki.ilab.bigdata</groupId>
+      <artifactId>bigdata-common</artifactId>
+      <version>0.0.1-SNAPSHOT</version>
+    </dependency>
+    <dependency>
+      <groupId>org.apache.hadoop</groupId>
+      <artifactId>hadoop-core</artifactId>
+      <version>1.0.1</version>
+    </dependency>
+    <dependency>
+      <groupId>org.apache.hbase</groupId>
+      <artifactId>hbase</artifactId>
+      <version>0.90.2</version>
+    </dependency>
+    <dependency>
+      <groupId>org.apache.zookeeper</groupId>
+      <artifactId>zookeeper</artifactId>
+      <version>3.3.1</version>
+    </dependency>
+    <dependency>
+      <groupId>commons-cli</groupId>
+      <artifactId>commons-cli</artifactId>
+      <version>1.2</version>
+    </dependency>
+    <dependency>
+      <groupId>commons-logging</groupId>
+      <artifactId>commons-logging</artifactId>
+      <version>1.1.1</version>
+      <scope>compile</scope>
+    </dependency>
+  </dependencies>
+
+  <build>
+    <plugins>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-compiler-plugin</artifactId>
+        <configuration>
+          <source>${compileSource}</source>
+          <target>${compileSource}</target>
+        </configuration>
+      </plugin>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-jar-plugin</artifactId>
+      </plugin>
+      <plugin>
+        <artifactId>maven-assembly-plugin</artifactId>
+        <configuration>
+          <descriptors>
+            <descriptor>src/main/resources/assemblies/assembly.xml</descriptor>
+          </descriptors>
+        </configuration>
+      </plugin>
+<!--       <plugin> -->
+<!--       <artifactId>maven-antrun-plugin</artifactId> -->
+<!--       <configuration> -->
+<!--       <tasks> -->
+<!--       Replace XXXX with password! -->
+<!--       <scp todir="hadoop:XXX@dell150:~/test" trust="true" failonerror="true" -->
+<!--       file="${project.build.directory}/${project.build.finalName}.jar" /> -->
+<!--       </tasks> -->
+<!--       </configuration> -->
+<!--       <executions> -->
+<!--       <execution> -->
+<!--       <id>upload</id> -->
+<!--       <phase>install</phase> -->
+<!--       <goals> -->
+<!--       <goal>run</goal> -->
+<!--       </goals> -->
+<!--       </execution> -->
+<!--       </executions> -->
+<!--       <dependencies> -->
+<!--       <dependency> -->
+<!--       <groupId>org.apache.ant</groupId> -->
+<!--       <artifactId>ant-jsch</artifactId> -->
+<!--       <version>1.8.3</version> -->
+<!--       </dependency> -->
+<!--       </dependencies> -->
+<!--       </plugin> -->
+    </plugins>
+    <!--<extensions>
+      <extension>
+        <groupId>org.apache.maven.wagon</groupId>
+        <artifactId>wagon-webdav</artifactId>
+        <version>1.0-beta-2</version>
+      </extension>
+    </extensions>-->
+  </build>
+
+</project>
